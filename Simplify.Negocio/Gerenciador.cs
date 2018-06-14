@@ -138,7 +138,7 @@ namespace Simplify.Negocio
                 this.banco.SaveChanges();
             }*/
 
-            // -- CAMPO COMPLEMENTO OBRIGATÓRIO -- //
+            // -- CAMPO COMPLEMENTO1 OBRIGATÓRIO -- //
             /*if (String.IsNullOrEmpty(clienteAdicionado.Complemento_endereco1))
             {
                 validacao.Mensagens.Add("Complemento_endereco1", "Campo complemento é obrigatório");
@@ -149,7 +149,7 @@ namespace Simplify.Negocio
                 this.banco.SaveChanges();
             }*/
 
-            // -- CAMPO CEP OBRIGATÓRIO -- //
+            // -- CAMPO CEP1 OBRIGATÓRIO -- //
             if (String.IsNullOrEmpty(clienteAdicionado.CEP_endereco1))
             {
                 validacao.Mensagens.Add("CEP_endereco1", "Campo CEP é obrigatório");
@@ -160,10 +160,21 @@ namespace Simplify.Negocio
                 this.banco.SaveChanges();
             }
 
-            // -- CAMPO BAIRRO OBRIGATÓRIO -- //
+            // -- CAMPO BAIRRO1 OBRIGATÓRIO -- //
             if (String.IsNullOrEmpty(clienteAdicionado.Bairro_endereco1))
             {
                 validacao.Mensagens.Add("Bairro_endereco1", "Campo bairro é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO CIDADE1 OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Cidade_endereco1))
+            {
+                validacao.Mensagens.Add("Cidade_endereco1", "Campo cidade é obrigatório");
             }
             if (validacao.Valido)
             {
