@@ -17,58 +17,153 @@ namespace Simplify.Negocio
         {
             Validacao validacao = new Validacao();
 
-            /* CPF deve conter exatamente 11 NÚMEROS 
-            if (clienteAdicionado.CPF = 11)
-            {
-                validacao.Mensagens.Add("CPF", "O CPF deve conter 11 números");
-            }
-
-            // Verifica existência do CPF já cadastado no sistema //
-            if (this.banco.Clientes.Where(c => c.CPF == clienteAdicionado.CPF).Any() && validacao.Mensagens.Count == 0)
-            {
-                validacao.Mensagens.Add("CPF", "Cliente já cadastrado no sistema");
-            }
-
-            // Campo nome é obrigatório //
-            if (String.IsNullOrEmpty(clienteAdicionado.Nome))
-            {
-                validacao.Mensagens.Add("Nome", "O campo nome é obrigatório");
-            }
-
-            // Campo email é obrigatório//
-            if (String.IsNullOrEmpty(clienteAdicionado.Email))
-            {
-                validacao.Mensagens.Add("Email", "O campo email é obrigatório");
-            }
-
-
-            // Campo email, inválido //
-            if (!clienteAdicionado.Email.Contains("@") && validacao.Mensagens.Count == 0)
-            {
-                validacao.Mensagens.Add("Email", "Email inválido");
-            }
-
-            // Verifica existência do email já cadastrado no sistema //
-            if (this.banco.Clientes.Where(c => c.Email == clienteAdicionado.Email).Any() && validacao.Mensagens.Count == 0)
-            {
-                validacao.Mensagens.Add("Email", "Email já cadastrado no sistema");
-            }
-
-            // Campo telefone é obrigatório //
-            if (String.IsNullOrEmpty(clienteAdicionado.Telefone))
-            {
-                validacao.Mensagens.Add("Telefone", "Campo telefone é obrigatório");
-            }
-
-            // Telefone deve conter 10 NÚMEROS //
-            if (clienteAdicionado.Telefone = 10)
-            {
-                validacao.Mensagens.Add("Telefone", "O telefone deve conter 12 números");
-            }
-            */
+            // -- CAMPO NOME OBRIGATÓRIO -- //
             if (String.IsNullOrEmpty(clienteAdicionado.Nome_dados))
             {
                 validacao.Mensagens.Add("Nome_dados", "Campo nome é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO INDICAÇÃO OBRIGATÓRIO -- //
+            /*if (String.IsNullOrEmpty(clienteAdicionado.Indicacao_dados))
+            {
+                validacao.Mensagens.Add("Indicacao_dados", "Campo indicação é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }*/
+
+            // -- CAMPO NASCIMENTO OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Nascimento_dados))
+            {
+                validacao.Mensagens.Add("Nascimento_dados", "Campo nascimento é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO CPF OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.CPF_dados))
+            {
+                validacao.Mensagens.Add("CPF_dados", "Campo CPF é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO RG OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.RG_dados))
+            {
+                validacao.Mensagens.Add("RG_dados", "Campo RG obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO PROFISSÃO OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Profissao_dados))
+            {
+                validacao.Mensagens.Add("Profissao_dados", "Campo profissão é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO SEXO OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Sexo_dados))
+            {
+                validacao.Mensagens.Add("Sexo_dados", "Campo sexo é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO ESTADO CIVIL OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.EstadoCivil_dados))
+            {
+                validacao.Mensagens.Add("EstadoCivil_dados", "Campo estado civil é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO ENDEREÇO1 OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Endereco_endereco1))
+            {
+                validacao.Mensagens.Add("Endereco_endereco1", "Campo endereço é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO RUA1 OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Rua_endereco1))
+            {
+                validacao.Mensagens.Add("Rua_endereco1", "Campo rua é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO NUMERO1 OBRIGATÓRIO -- //
+            /*if (String.IsNullOrEmpty(Convert.ToString(clienteAdicionado.Num_endereco1)))
+            {
+                validacao.Mensagens.Add("Num_endereco1", "Campo número é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }*/
+
+            // -- CAMPO COMPLEMENTO OBRIGATÓRIO -- //
+            /*if (String.IsNullOrEmpty(clienteAdicionado.Complemento_endereco1))
+            {
+                validacao.Mensagens.Add("Complemento_endereco1", "Campo complemento é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }*/
+
+            // -- CAMPO CEP OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.CEP_endereco1))
+            {
+                validacao.Mensagens.Add("CEP_endereco1", "Campo CEP é obrigatório");
+            }
+            if (validacao.Valido)
+            {
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SaveChanges();
+            }
+
+            // -- CAMPO BAIRRO OBRIGATÓRIO -- //
+            if (String.IsNullOrEmpty(clienteAdicionado.Bairro_endereco1))
+            {
+                validacao.Mensagens.Add("Bairro_endereco1", "Campo bairro é obrigatório");
             }
             if (validacao.Valido)
             {
